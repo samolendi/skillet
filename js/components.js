@@ -176,13 +176,27 @@ const Components = {
 
   // ========== RESULTS SCREENS ==========
 
-  // Section 1 results: ranked strengths
+  // Section 1 results: ranked strengths + quadrant analysis
   resultsS1(responses) {
     const data = Scoring.calculateS1(responses);
-    let summaryBars = '', sections = '';
+    let summaryBars = '', quadrantsHtml = '', sections = '';
 
     for (const cat of data.ranked) {
       summaryBars += scoreRow(cat.name, toPct(cat.combined), cat.color, toDisplay(cat.combined));
+    }
+
+    // Quadrant tier blocks
+    if (data.quadrants.strongest.length) {
+      quadrantsHtml += tierBlock('Strongest Areas', '#34D399', data.quadrants.strongest);
+    }
+    if (data.quadrants.highInterest.length) {
+      quadrantsHtml += tierBlock('High Interest, Lower Confidence', '#FACC15', data.quadrants.highInterest);
+    }
+    if (data.quadrants.highConfidence.length) {
+      quadrantsHtml += tierBlock('High Confidence, Lower Interest', '#60A5FA', data.quadrants.highConfidence);
+    }
+    if (data.quadrants.lowBoth.length) {
+      quadrantsHtml += tierBlock('Low Across Both', '#666', data.quadrants.lowBoth);
     }
 
     for (const cat of data.ranked) {
@@ -208,7 +222,7 @@ const Components = {
       sections += drilldownSection(cat, toDisplay(cat.combined), subRows);
     }
 
-    return resultsShell('Your Design Strengths', 'Ranked by combined interest and confidence.', 'Ranked by combined score', summaryBars, sections, 'preferences');
+    return resultsShell('Your Design Strengths', 'Ranked by combined interest and confidence.', 'Ranked by combined score', summaryBars, quadrantsHtml + sections, 'preferences');
   },
 
   // Section 2 results: environment needs + gap analysis
@@ -262,7 +276,16 @@ const Components = {
         </div>`;
     }
 
-    return resultsShell('Ideal Work Environment', 'What matters most to you, ranked by importance.', 'Ranked by importance', summaryBars, gapHtml + sections, 'environment');
+    // Additional tier blocks
+    let tiersHtml = '';
+    if (data.tiers.workingWell.length) {
+      tiersHtml += tierBlock('Working Well', '#34D399', data.tiers.workingWell);
+    }
+    if (data.tiers.lowPriority.length) {
+      tiersHtml += tierBlock('Low Priority', '#666', data.tiers.lowPriority);
+    }
+
+    return resultsShell('Ideal Work Environment', 'What matters most to you, ranked by importance.', 'Ranked by importance', summaryBars, gapHtml + tiersHtml + sections, 'environment');
   },
 
   // Section 3 results: accommodation tiers

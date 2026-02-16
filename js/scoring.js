@@ -6,6 +6,7 @@ const Scoring = {
 
   // ========== SECTION 1: PREFERENCES ==========
   // Combined Interest × Confidence (geometric mean)
+  // Each statement has a single dimension (interest OR confidence)
   calculateS1(responses) {
     const results = [];
     for (const cat of S1_CATEGORIES) {
@@ -19,10 +20,12 @@ const Scoring = {
       for (const sub of cat.subcategories) {
         const subI = [], subC = [];
         for (const stmt of sub.statements) {
-          const iv = responses[`${stmt.id}_interest`];
-          const cv = responses[`${stmt.id}_confidence`];
-          if (iv !== undefined) { subI.push(iv); catI.push(iv); }
-          if (cv !== undefined) { subC.push(cv); catC.push(cv); }
+          const key = `${stmt.id}_${stmt.dimension}`;
+          const val = responses[key];
+          if (val !== undefined) {
+            if (stmt.dimension === 'interest') { subI.push(val); catI.push(val); }
+            else if (stmt.dimension === 'confidence') { subC.push(val); catC.push(val); }
+          }
         }
         const si = mean(subI), sc = mean(subC);
         catResult.subcategories.push({
@@ -35,7 +38,29 @@ const Scoring = {
       catResult.combined = geoMean(catResult.interest, catResult.confidence);
       results.push(catResult);
     }
-    return { categories: results, ranked: [...results].sort((a, b) => b.combined - a.combined) };
+
+    // Quadrant classification at subcategory level
+    const strongest = [], highInterest = [], highConfidence = [], lowBoth = [];
+    for (const cat of results) {
+      for (const sub of cat.subcategories) {
+        const item = { category: cat.name, subcategory: sub.name, interest: sub.interest, confidence: sub.confidence, color: cat.color };
+        if (sub.interest >= 3 && sub.confidence >= 3) {
+          strongest.push(item);
+        } else if (sub.interest >= 3 && sub.confidence < 3) {
+          highInterest.push(item);
+        } else if (sub.confidence >= 3 && sub.interest < 3) {
+          highConfidence.push(item);
+        } else if (sub.interest <= 1 && sub.confidence <= 1) {
+          lowBoth.push(item);
+        }
+      }
+    }
+
+    return {
+      categories: results,
+      ranked: [...results].sort((a, b) => b.combined - a.combined),
+      quadrants: { strongest, highInterest, highConfidence, lowBoth },
+    };
   },
 
   // ========== SECTION 2: ENVIRONMENT ==========
@@ -79,7 +104,25 @@ const Scoring = {
     const gaps = results
       .filter(c => c.gap !== null && c.importance >= 3 && c.gap >= 1.5)
       .sort((a, b) => b.gap - a.gap);
-    return { categories: results, ranked, gaps };
+
+    // Tier classification at subcategory level
+    const urgentGaps = [], workingWell = [], lowPriority = [];
+    for (const cat of results) {
+      for (const sub of cat.subcategories) {
+        const item = { category: cat.name, subcategory: sub.name, importance: sub.importance, current: sub.current, gap: sub.gap, color: cat.color };
+        if (sub.importance >= 3) {
+          if (sub.gap !== null && sub.gap >= 1.5) {
+            urgentGaps.push(item);
+          } else if (sub.current !== null && (sub.gap === null || sub.gap < 1)) {
+            workingWell.push(item);
+          }
+        } else if (sub.importance <= 1) {
+          lowPriority.push(item);
+        }
+      }
+    }
+
+    return { categories: results, ranked, gaps, tiers: { urgentGaps, workingWell, lowPriority } };
   },
 
   // ========== SECTION 3: ACCOMMODATIONS ==========

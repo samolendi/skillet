@@ -59,9 +59,8 @@ const S1_CATEGORIES = [
         name: 'Qualitative Research',
         subtitle: 'Interviews & Observations',
         statements: [
-          { id: 's1_research_qual_1', text: 'I actively seek opportunities to conduct one-on-one user interviews' },
-          { id: 's1_research_qual_2', text: 'I feel confident extracting meaningful insights from user conversations' },
-          { id: 's1_research_qual_3', text: 'I get energised by observing users in their natural environment' },
+          { id: 's1_research_qual_1', text: 'I actively seek opportunities to conduct one-on-one user interviews', dimension: 'interest' },
+          { id: 's1_research_qual_2', text: 'I feel confident extracting meaningful insights from user conversations', dimension: 'confidence' },
         ]
       },
       {
@@ -69,9 +68,8 @@ const S1_CATEGORIES = [
         name: 'Quantitative Research',
         subtitle: 'Data & Testing',
         statements: [
-          { id: 's1_research_quant_1', text: 'I enjoy analysing quantitative data to understand user behaviour' },
-          { id: 's1_research_quant_2', text: 'I trust my ability to design effective A/B tests' },
-          { id: 's1_research_quant_3', text: 'I\u2019m excited by the challenge of making sense of large datasets' },
+          { id: 's1_research_quant_1', text: 'I enjoy analysing quantitative data to understand user behaviour', dimension: 'interest' },
+          { id: 's1_research_quant_2', text: 'I trust my ability to design and interpret A/B tests', dimension: 'confidence' },
         ]
       },
       {
@@ -79,9 +77,8 @@ const S1_CATEGORIES = [
         name: 'Research Synthesis',
         subtitle: 'Patterns & Insights',
         statements: [
-          { id: 's1_research_synth_1', text: 'I find satisfaction in organising research findings into actionable insights' },
-          { id: 's1_research_synth_2', text: 'I\u2019m comfortable facilitating affinity diagramming sessions' },
-          { id: 's1_research_synth_3', text: 'I actively look for patterns and themes across research data' },
+          { id: 's1_research_synth_1', text: 'I find satisfaction in organising research findings into actionable insights', dimension: 'interest' },
+          { id: 's1_research_synth_2', text: 'I trust my ability to identify patterns across complex research data', dimension: 'confidence' },
         ]
       }
     ]
@@ -98,9 +95,8 @@ const S1_CATEGORIES = [
         name: 'Foundational IA & Flow',
         subtitle: 'Structure & Navigation',
         statements: [
-          { id: 's1_ixd_ia_1', text: 'I get excited about organising complex information architectures' },
-          { id: 's1_ixd_ia_2', text: 'I trust my instincts when designing user flows' },
-          { id: 's1_ixd_ia_3', text: 'I actively think about navigation patterns even outside of work' },
+          { id: 's1_ixd_ia_1', text: 'I get excited about organising complex information architectures', dimension: 'interest' },
+          { id: 's1_ixd_ia_2', text: 'I trust my instincts when designing user flows and navigation', dimension: 'confidence' },
         ]
       },
       {
@@ -108,9 +104,8 @@ const S1_CATEGORIES = [
         name: 'Wireframing & Prototyping',
         subtitle: 'Sketching & Iteration',
         statements: [
-          { id: 's1_ixd_wire_1', text: 'I enjoy the process of sketching and wireframing ideas' },
-          { id: 's1_ixd_wire_2', text: 'I feel confident creating interactive prototypes that communicate my vision' },
-          { id: 's1_ixd_wire_3', text: 'I find satisfaction in iterating on interaction patterns' },
+          { id: 's1_ixd_wire_1', text: 'I enjoy the process of sketching and wireframing ideas', dimension: 'interest' },
+          { id: 's1_ixd_wire_2', text: 'I feel confident creating interactive prototypes that communicate my vision', dimension: 'confidence' },
         ]
       },
       {
@@ -118,9 +113,8 @@ const S1_CATEGORIES = [
         name: 'Systems Thinking',
         subtitle: 'Components & Scalability',
         statements: [
-          { id: 's1_ixd_sys_1', text: 'I\u2019m drawn to designing reusable component systems' },
-          { id: 's1_ixd_sys_2', text: 'I\u2019m comfortable defining how components should behave across different contexts' },
-          { id: 's1_ixd_sys_3', text: 'I actively think about consistency and scalability in design decisions' },
+          { id: 's1_ixd_sys_1', text: 'I\u2019m drawn to designing reusable component systems', dimension: 'interest' },
+          { id: 's1_ixd_sys_2', text: 'I\u2019m confident defining how components should behave across different contexts', dimension: 'confidence' },
         ]
       }
     ]
@@ -137,9 +131,8 @@ const S1_CATEGORIES = [
         name: 'UI Polish & Refinement',
         subtitle: 'Craft & Execution',
         statements: [
-          { id: 's1_vis_polish_1', text: 'I get satisfaction from pixel-perfect visual execution' },
-          { id: 's1_vis_polish_2', text: 'I trust my eye for visual hierarchy and composition' },
-          { id: 's1_vis_polish_3', text: 'I actively seek opportunities to elevate visual quality' },
+          { id: 's1_vis_polish_1', text: 'I get satisfaction from pixel-perfect visual execution', dimension: 'interest' },
+          { id: 's1_vis_polish_2', text: 'I trust my eye for visual hierarchy and composition', dimension: 'confidence' },
         ]
       },
       {
@@ -147,9 +140,8 @@ const S1_CATEGORIES = [
         name: 'Design Systems Application',
         subtitle: 'Tokens & Consistency',
         statements: [
-          { id: 's1_vis_ds_1', text: 'I enjoy working within existing design systems' },
-          { id: 's1_vis_ds_2', text: 'I\u2019m comfortable applying design tokens and components consistently' },
-          { id: 's1_vis_ds_3', text: 'I find satisfaction in maintaining visual consistency across products' },
+          { id: 's1_vis_ds_1', text: 'I enjoy working within and extending existing design systems', dimension: 'interest' },
+          { id: 's1_vis_ds_2', text: 'I\u2019m confident applying design tokens and components consistently', dimension: 'confidence' },
         ]
       },
       {
@@ -157,9 +149,8 @@ const S1_CATEGORIES = [
         name: 'Creative Expression',
         subtitle: 'Experimentation & Push',
         statements: [
-          { id: 's1_vis_create_1', text: 'I\u2019m energised by opportunities for visual experimentation' },
-          { id: 's1_vis_create_2', text: 'I trust my ability to balance creativity with usability' },
-          { id: 's1_vis_create_3', text: 'I actively push for stronger visual design in my work' },
+          { id: 's1_vis_create_1', text: 'I\u2019m energised by opportunities for visual experimentation', dimension: 'interest' },
+          { id: 's1_vis_create_2', text: 'I trust my ability to balance creative expression with usability', dimension: 'confidence' },
         ]
       }
     ]
@@ -176,9 +167,8 @@ const S1_CATEGORIES = [
         name: 'Standards & Compliance',
         subtitle: 'Guidelines & Advocacy',
         statements: [
-          { id: 's1_a11y_std_1', text: 'I actively learn about WCAG guidelines and accessibility standards' },
-          { id: 's1_a11y_std_2', text: 'I\u2019m comfortable auditing designs for accessibility issues' },
-          { id: 's1_a11y_std_3', text: 'I seek out opportunities to advocate for accessibility improvements' },
+          { id: 's1_a11y_std_1', text: 'I actively seek out learning about WCAG guidelines and accessibility standards', dimension: 'interest' },
+          { id: 's1_a11y_std_2', text: 'I\u2019m confident auditing designs for accessibility issues independently', dimension: 'confidence' },
         ]
       },
       {
@@ -186,9 +176,8 @@ const S1_CATEGORIES = [
         name: 'Inclusive Design Thinking',
         subtitle: 'Diverse & Cognitive Needs',
         statements: [
-          { id: 's1_a11y_inc_1', text: 'I\u2019m energised by designing for diverse cognitive and sensory needs' },
-          { id: 's1_a11y_inc_2', text: 'I trust my ability to identify accessibility barriers early in design' },
-          { id: 's1_a11y_inc_3', text: 'I actively consider neurodivergent user needs in my design decisions' },
+          { id: 's1_a11y_inc_1', text: 'I\u2019m energised by designing for diverse cognitive and sensory needs', dimension: 'interest' },
+          { id: 's1_a11y_inc_2', text: 'I trust my ability to identify accessibility barriers early in the design process', dimension: 'confidence' },
         ]
       }
     ]
@@ -205,9 +194,8 @@ const S1_CATEGORIES = [
         name: 'Code & Implementation',
         subtitle: 'HTML/CSS & Beyond',
         statements: [
-          { id: 's1_tech_code_1', text: 'I\u2019m excited about understanding how designs are built technically' },
-          { id: 's1_tech_code_2', text: 'I\u2019m comfortable working with HTML/CSS to refine designs' },
-          { id: 's1_tech_code_3', text: 'I actively look for opportunities to learn more technical skills' },
+          { id: 's1_tech_code_1', text: 'I\u2019m excited about understanding how designs are built technically', dimension: 'interest' },
+          { id: 's1_tech_code_2', text: 'I\u2019m confident working with code to refine designs in the browser', dimension: 'confidence' },
         ]
       },
       {
@@ -215,9 +203,8 @@ const S1_CATEGORIES = [
         name: 'AI & Automation',
         subtitle: 'Generative AI & Workflows',
         statements: [
-          { id: 's1_tech_ai_1', text: 'I\u2019m energised by exploring AI tools in design workflows' },
-          { id: 's1_tech_ai_2', text: 'I feel comfortable experimenting with generative AI for design work' },
-          { id: 's1_tech_ai_3', text: 'I actively think about how automation could improve design processes' },
+          { id: 's1_tech_ai_1', text: 'I\u2019m energised by exploring AI tools in design workflows', dimension: 'interest' },
+          { id: 's1_tech_ai_2', text: 'I feel confident experimenting with and evaluating generative AI tools for design', dimension: 'confidence' },
         ]
       },
       {
@@ -225,9 +212,8 @@ const S1_CATEGORIES = [
         name: 'Design Tooling',
         subtitle: 'Tools & Emerging Tech',
         statements: [
-          { id: 's1_tech_tool_1', text: 'I enjoy learning new design and prototyping tools' },
-          { id: 's1_tech_tool_2', text: 'I\u2019m comfortable teaching others how to use design tools effectively' },
-          { id: 's1_tech_tool_3', text: 'I actively experiment with emerging design technologies' },
+          { id: 's1_tech_tool_1', text: 'I enjoy learning and pushing the limits of design and prototyping tools', dimension: 'interest' },
+          { id: 's1_tech_tool_2', text: 'I\u2019m confident enough with my tooling knowledge to teach others', dimension: 'confidence' },
         ]
       }
     ]
@@ -244,9 +230,8 @@ const S1_CATEGORIES = [
         name: 'Problem Framing',
         subtitle: 'Defining the Right Problem',
         statements: [
-          { id: 's1_strat_frame_1', text: 'I\u2019m energised by defining what problem we should solve' },
-          { id: 's1_strat_frame_2', text: 'I trust my ability to frame ambiguous problems clearly' },
-          { id: 's1_strat_frame_3', text: 'I actively look for opportunities to shape project direction early' },
+          { id: 's1_strat_frame_1', text: 'I\u2019m energised by defining what problem we should actually be solving', dimension: 'interest' },
+          { id: 's1_strat_frame_2', text: 'I trust my ability to frame ambiguous problems clearly for a team', dimension: 'confidence' },
         ]
       },
       {
@@ -254,9 +239,8 @@ const S1_CATEGORIES = [
         name: 'Design Vision',
         subtitle: 'Strategy & Business Goals',
         statements: [
-          { id: 's1_strat_vision_1', text: 'I enjoy imagining future-state experiences and design directions' },
-          { id: 's1_strat_vision_2', text: 'I\u2019m comfortable articulating design strategy to stakeholders' },
-          { id: 's1_strat_vision_3', text: 'I find satisfaction in connecting design decisions to business goals' },
+          { id: 's1_strat_vision_1', text: 'I enjoy imagining future-state experiences and long-term design directions', dimension: 'interest' },
+          { id: 's1_strat_vision_2', text: 'I\u2019m confident articulating design strategy to stakeholders and leadership', dimension: 'confidence' },
         ]
       }
     ]
@@ -837,7 +821,7 @@ function buildSectionQuestions(sectionId, categories) {
           subcategoryName: sub.name,
           subcategorySubtitle: sub.subtitle,
           statement: stmt.text,
-          dimensions: section.dimensions,
+          dimensions: stmt.dimension ? [stmt.dimension] : section.dimensions,
         });
       }
       // Add "current vs ideal" statement for S2 if it exists

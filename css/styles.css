@@ -553,11 +553,11 @@ body {
   background: var(--surface);
   border-radius: var(--radius);
   padding: 24px;
-  margin-bottom: 32px;
+  margin-bottom: 24px;
 }
 
 .results-summary__title {
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   font-weight: 600;
   color: var(--text-dim);
   text-transform: uppercase;
@@ -611,7 +611,7 @@ body {
 
 /* Drilldown sections */
 .results-section {
-  margin-bottom: 24px;
+  margin-bottom: 8px;
 }
 
 .results-section__header {
@@ -668,7 +668,7 @@ body {
 }
 
 .results-section__inner {
-  padding: 20px 0;
+  padding: 20px 0 12px;
 }
 
 /* Subcategory rows inside drilldown */
@@ -683,11 +683,21 @@ body {
   margin-bottom: 0;
 }
 
+/* Dashed divider between subcategory groups */
+.sub-score-row ~ .sub-score-row {
+  border-top: 1px dashed var(--border);
+  padding-top: 16px;
+  margin-top: 8px;
+}
+
 .sub-score-row__label {
   width: 160px;
   flex-shrink: 0;
-  font-size: 0.85rem;
-  color: var(--text-dim);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
 }
 
 .sub-score-row__bar-wrap {
@@ -718,34 +728,32 @@ body {
   align-items: center;
   gap: 12px;
   margin-bottom: 8px;
-  padding-left: 36px;
+  padding-left: 18px;
 }
 
 .dimension-row__label {
-  width: 80px;
+  width: 160px;
   flex-shrink: 0;
   font-size: 0.75rem;
   color: var(--text-muted);
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
 }
 
 .dimension-row__bar-wrap {
   flex: 1;
-  height: 12px;
+  height: 10px;
   background: var(--surface-3);
-  border-radius: 6px;
+  border-radius: 5px;
   overflow: hidden;
 }
 
 .dimension-row__bar {
   height: 100%;
-  border-radius: 6px;
+  border-radius: 5px;
   transition: width 600ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .dimension-row__value {
-  width: 28px;
+  width: 32px;
   text-align: right;
   font-size: 0.75rem;
   font-variant-numeric: tabular-nums;
@@ -1008,14 +1016,19 @@ body {
     height: 36px;
   }
 
-  .score-row__label,
-  .sub-score-row__label {
+  .score-row__label {
     width: 100px;
     font-size: 0.8rem;
   }
 
+  .sub-score-row__label,
+  .dimension-row__label {
+    width: 110px;
+    font-size: 0.7rem;
+  }
+
   .results-section__inner {
-    padding: 16px 0;
+    padding: 16px 0 8px;
   }
 
   .sub-score-row,
